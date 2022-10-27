@@ -1,0 +1,13 @@
+{
+  "name": "design-patterns-workshop",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+
+  },
+  "scripts": {
+    "dev": "node index.js",
+    "build": "",
+    "test": ""
+  }
+}
