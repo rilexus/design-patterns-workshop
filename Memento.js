@@ -3,105 +3,55 @@
  * NOTE: a solution is below
  */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class Memento {
-  hydrate(){
+  hydrate() {
     return JSON.stringify(this);
-  };
+  }
 
-  dehydrate(memento){
-    console.warn('Not implemented.');
-  };
+  dehydrate(memento) {
+    console.warn("Not implemented.");
+  }
 }
 
 class Person extends Memento {
   name = null;
   constructor(name) {
     super();
-    this.name = name
+    this.name = name;
   }
 
   dehydrate(memento) {
     const json = JSON.parse(memento);
     this.name = json.name;
-    return this
+    return this;
   }
 }
 
 class Store {
-  values = {}
+  values = {};
 
-  add(key, value){
-    this.values = {...this.values, [key]: value}
+  add(key, value) {
+    this.values = { ...this.values, [key]: value };
   }
 
-  get(key){
+  get(key) {
     return this.values[key];
   }
 
-  remove(key){
-    const {[key]: value, ...rest} = this.values;
+  remove(key) {
+    const { [key]: value, ...rest } = this.values;
     this.values = rest;
-    return value
+    return value;
   }
 }
 
-
-const frank = new Person('frank');
+const frank = new Person("frank");
 const store = new Store();
 
-store.add('frank', frank.hydrate());
+store.add("frank", frank.hydrate());
 
-frank.name= 'some'
+frank.name = "some";
 
-console.log(frank.dehydrate(store.get('frank')))
+console.log(frank.dehydrate(store.get("frank")));
 
-
-export {Memento, Store, Person}
+export { Memento, Store, Person };

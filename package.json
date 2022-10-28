@@ -5,6 +5,10 @@
   "dependencies": {
 
   },
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "@types/node": "^18.11.7"
+  },
   "scripts": {
     "dev": "node index.js",
     "build": "",
